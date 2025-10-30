@@ -98,6 +98,10 @@ class _LoginPageState extends State<LoginPage> {
                     if (value == null || value.trim().isEmpty) {
                       return 'L\'email est obligatoire';
                     }
+                    final emailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
+                    if (!emailRegex.hasMatch(value)) {
+                      return 'Adresse email invalide';
+                    }
                     return null;
                   },
                 ),
